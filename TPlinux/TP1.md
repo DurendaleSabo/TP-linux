@@ -299,7 +299,7 @@ Site 1 :
 <h1>Site2 </h1>
   ```
  ## scripting
-
+```bash
 #!/bin/bash
 
 # Buton
@@ -323,7 +323,7 @@ if [ "$nbr_site1" > 7 ]; then
         echo "ça marche"
 
 fi
-
+ ```
   ## Netdata
 ```bash
  bash <(curl -Ss https://my-netdata.io/kickstart.sh)
