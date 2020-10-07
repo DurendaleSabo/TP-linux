@@ -96,10 +96,59 @@ grep: /run/systemd/transient/*: No such file or directory
 ```
 ### 3. Création d'un service
 #### a. Serveur web
+```bash
+[vagrant@tp3b2 system]$ sudo systemctl status configserv.service
+● configserv.service - Serveur
+   Loaded: loaded (/etc/systemd/system/configserv.service; disabled; vendor preset: disabled)
+   Active: active (running) since Wed 2020-10-07 14:36:59 UTC; 4s ago
+  Process: 1620 ExecStartPre=/usr/bin/sudo /usr/bin/firewall-cmd --add-port=${PORT}/tcp (code=exited, status=0/SUCCESS)
+ Main PID: 1627 (python2)
+   CGroup: /system.slice/configserv.service
+           └─1627 /usr/bin/python2 -m SimpleHTTPServer 8080
+
+Oct 07 14:36:58 tp3b2 systemd[1]: Starting Serveur...
+Oct 07 14:36:58 tp3b2 sudo[1620]:  serveur : TTY=unknown ; PWD=/ ; USER=root ; COMMAND=/usr/bin/firewall-cmd --add-port=8080/tcp
+Oct 07 14:36:59 tp3b2 systemd[1]: Started Serveur.
+``` 
 #### b. Sauvegarde
 
 ## II. Autres features
-### 1. Gestion d'interfaces
-### 2. Gestion de boot
-### 3. Gestion de l'heure
-### 4. Gestion des noms et de la résolution de noms
+
+### 1. Gestion de boot
+
+### 2. Gestion de l'heure
+
+### 3. Gestion des noms et de la résolution de noms
+```bash
+[vagrant@tp3b2 /]$  hostnamectl
+   Static hostname: tp3b2
+         Icon name: computer-vm
+           Chassis: vm
+        Machine ID: 109fef3af4d25d4f9cd50ee35f938ec2
+           Boot ID: 66b9fdc4987c474eae23b1422b2a895e
+    Virtualization: kvm
+  Operating System: CentOS Linux 7 (Core)
+       CPE OS Name: cpe:/o:centos:centos:7
+            Kernel: Linux 3.10.0-1127.el7.x86_64
+      Architecture: x86-64
+```
+puis je le change 
+```bash
+[vagrant@tp3b2 /]$ sudo hostnamectl set-hostname michel
+```
+```bash
+[vagrant@tp3b2 /]$ hostnamectl
+   Static hostname: michel
+         Icon name: computer-vm
+           Chassis: vm
+        Machine ID: 109fef3af4d25d4f9cd50ee35f938ec2
+           Boot ID: 66b9fdc4987c474eae23b1422b2a895e
+    Virtualization: kvm
+  Operating System: CentOS Linux 7 (Core)
+       CPE OS Name: cpe:/o:centos:centos:7
+            Kernel: Linux 3.10.0-1127.el7.x86_64
+      Architecture: x86-64
+```
+
+
+
