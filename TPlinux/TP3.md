@@ -115,9 +115,42 @@ Oct 07 14:36:59 tp3b2 systemd[1]: Started Serveur.
 ## II. Autres features
 
 ### 1. Gestion de boot
-
+```bash
+network.service
+tuned.service
+postfix.service
+```
 ### 2. Gestion de l'heure
+```bash
+[vagrant@tp3b2 ~]$ timedatectl
+      Local time: Wed 2020-10-07 15:50:55 UTC
+  Universal time: Wed 2020-10-07 15:50:55 UTC
+        RTC time: Wed 2020-10-07 15:50:52
+       Time zone: UTC (UTC, +0000)
+     NTP enabled: yes
+NTP synchronized: yes
+ RTC in local TZ: no
+      DST active: n/a
+```
 
+```bash
+timedatectl list-timezones
+```
+```bash
+ timedatectl set-timezone America/Bogota
+```
+
+```bash
+[vagrant@tp3b2 ~]$ timedatectl
+      Local time: Wed 2020-10-07 10:56:28 -05
+  Universal time: Wed 2020-10-07 15:56:28 UTC
+        RTC time: Wed 2020-10-07 15:56:25
+       Time zone: America/Bogota (-05, -0500)
+     NTP enabled: yes
+NTP synchronized: yes
+ RTC in local TZ: no
+      DST active: n/a
+```
 ### 3. Gestion des noms et de la résolution de noms
 ```bash
 [vagrant@tp3b2 /]$  hostnamectl
@@ -132,10 +165,11 @@ Oct 07 14:36:59 tp3b2 systemd[1]: Started Serveur.
             Kernel: Linux 3.10.0-1127.el7.x86_64
       Architecture: x86-64
 ```
-puis je le change 
+puis je le change a l'aide de ceci:
 ```bash
 [vagrant@tp3b2 /]$ sudo hostnamectl set-hostname michel
 ```
+puis voici le changement: 
 ```bash
 [vagrant@tp3b2 /]$ hostnamectl
    Static hostname: michel
